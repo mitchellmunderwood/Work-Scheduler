@@ -1,4 +1,4 @@
-var times = ["8:00AM", "9:00AM", "10:00AM", "11:00AM", "12:00AM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM", "6:00PM", "7:00PM", "8:00PM", "9:00PM", "10:00PM"];
+var times = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
 
 var column = $(".col-12");
 
@@ -8,7 +8,9 @@ if (localStorage.getItem("schedule")) {
     schedule = JSON.parse(localStorage.getItem("schedule"));
 }
 
-console.log(schedule);
+var curr_time = Date();
+
+// console.log(schedule);
 
 function init() {
     // set up the html elements for the times
@@ -19,7 +21,7 @@ function init() {
 
         var time = $("<p>");
         time.attr("class", "block-time");
-        time.text(el);
+        time.text(timeString(el));
         block.append(time);
 
         var desc = $("<input>");
@@ -33,6 +35,8 @@ function init() {
         } else {
             schedule[el] = "";
         }
+
+        desc.css("background", timeColor(el));
 
         block.append(desc);
 
@@ -55,6 +59,29 @@ function init() {
 
         column.append(block);
     })
+}
+
+function timeColor(el) {
+    let date = new Date();
+    let hours = date.getHours();
+    if (el < hours) {
+        return "lightgrey";
+    } else if (el === hours) {
+        return "red";
+    } else {
+        return "lightgreen";
+    }
+}
+
+function timeString(el) {
+    // console.log("timeString", el);
+    if (el < 12) {
+        return el + ":00AM"
+    } else if (el === 12) {
+        return el + ":00PM"
+    } else if (el > 12) {
+        return ((el - 12) + ":00PM")
+    }
 }
 
 
