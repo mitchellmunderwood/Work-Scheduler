@@ -83,8 +83,18 @@ function timeString(el) {
     }
 }
 
+const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+function initDate() {
+    var weekday = weekdays[moment().day()];
+    var monthday = moment().date();
+    var month = months[moment().month()];
+    var year = moment().year();
+    $("#currentDay").text(weekday + ", " + month + " " + monthday + ", " + year);
+}
 
 init();
-
+initDate();
 
 
