@@ -43,9 +43,11 @@ function init() {
         var save = $("<button>");
         save.attr("class", "block-save");
         save.attr("time", el);
+
         var icon = $("<i>");
-        icon.attr("class", "bx bx-save");
+        icon.attr("class", "fa fa-floppy-o");
         save.append(icon);
+
         block.append(save);
 
         save.on("click", function (event) {
