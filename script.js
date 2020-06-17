@@ -1,4 +1,4 @@
-var times = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+var times = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 var column = $(".col-12");
 
@@ -62,8 +62,7 @@ function init() {
 }
 
 function timeColor(el) {
-    let date = new Date();
-    let hours = date.getHours();
+    let hours = moment().hour();
     if (el < hours) {
         return "lightgrey";
     } else if (el === hours) {
@@ -76,11 +75,11 @@ function timeColor(el) {
 function timeString(el) {
     // console.log("timeString", el);
     if (el < 12) {
-        return el + ":00AM"
+        return el + "AM"
     } else if (el === 12) {
-        return el + ":00PM"
+        return el + "PM"
     } else if (el > 12) {
-        return ((el - 12) + ":00PM")
+        return ((el - 12) + "PM")
     }
 }
 
