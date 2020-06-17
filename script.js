@@ -1,14 +1,15 @@
+
+// array with time slots
 var times = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
+// columnEl declaration
 var column = $(".col-12");
 
+// create schedule and load from localstorage if possible
 let schedule = {};
-
 if (localStorage.getItem("schedule")) {
     schedule = JSON.parse(localStorage.getItem("schedule"));
 }
-
-var curr_time = Date();
 
 // console.log(schedule);
 
@@ -50,6 +51,7 @@ function init() {
 
         block.append(save);
 
+        // set up event listeners for save buttons as they are created
         save.on("click", function (event) {
             event.preventDefault();
             var curr_desc = $(this).prev();
@@ -63,17 +65,19 @@ function init() {
     })
 }
 
+// determine background color based on time
 function timeColor(el) {
     let hours = moment().hour();
     if (el < hours) {
-        return "lightgrey";
+        return "#d3d3d3";
     } else if (el === hours) {
-        return "red";
+        return "#ff6961";
     } else {
-        return "lightgreen";
+        return "#77dd77";
     }
 }
 
+// Turns time from military time into standard time
 function timeString(el) {
     // console.log("timeString", el);
     if (el < 12) {
@@ -85,6 +89,7 @@ function timeString(el) {
     }
 }
 
+// Constants and function to post date at the top of the page when opened
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -96,6 +101,7 @@ function initDate() {
     $("#currentDay").text(weekday + ", " + month + " " + monthday + ", " + year);
 }
 
+// call functions when the page is opened
 init();
 initDate();
 
