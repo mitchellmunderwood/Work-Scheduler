@@ -58,7 +58,7 @@ Work Scheduler is currently deployed with Github. <a href="https://mitchellmunde
 
 ### Description
 
-A scheduling application that utilized local browser storage for memory.
+A scheduling application that utilizes local browser storage for memory.
 
 <br/>
 
