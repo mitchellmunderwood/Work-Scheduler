@@ -39,7 +39,7 @@ A simple scheduling application.
 
 ### Live
 
-Work Scheduler is currently deployed with Deployment. <a href="https://mitchellmunderwood.github.io/Work-Scheduler">Go to Live</a>.
+Work Scheduler is currently deployed with Github. <a href="https://mitchellmunderwood.github.io/Work-Scheduler">Go to Live</a>.
 <br/>
 
 ### Gallery
@@ -93,9 +93,9 @@ Work Scheduler is licensed under the terms of the [MIT License](https://opensour
          alt="Node"> -->
 </p>
 
-Open Source Tools:
+<!-- Open Source Tools:
 
-- [Thing](https://thing.com)
+- [Thing](https://thing.com) -->
 
 <br/>
 
